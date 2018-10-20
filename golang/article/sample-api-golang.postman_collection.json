@@ -1,0 +1,257 @@
+{
+	"id": "3e86b647-1f24-489d-989e-e1dc8c595c49",
+	"name": "sample-api-golang",
+	"description": "",
+	"auth": null,
+	"events": null,
+	"variables": [],
+	"order": [],
+	"folders_order": [
+		"7a5d9f8e-da40-4328-976d-588eace9466e",
+		"be58c173-2b74-4b27-855a-5d93bd608428"
+	],
+	"folders": [
+		{
+			"id": "7a5d9f8e-da40-4328-976d-588eace9466e",
+			"name": "Article",
+			"description": "",
+			"auth": null,
+			"events": null,
+			"collection": "3e86b647-1f24-489d-989e-e1dc8c595c49",
+			"folder": null,
+			"order": [
+				"a389ad72-d96f-4e3d-b77c-a2c28c0ec737",
+				"997f026f-cb76-4c09-8dcd-538171741501",
+				"22d4472f-334b-4f78-ba7d-8a6ed5507037",
+				"23a0ddec-7898-4d56-bd34-1b86f02546b0",
+				"a31b0451-2410-408a-878d-a54851c310b9"
+			],
+			"folders_order": []
+		},
+		{
+			"id": "be58c173-2b74-4b27-855a-5d93bd608428",
+			"name": "Category",
+			"description": "",
+			"auth": null,
+			"events": null,
+			"collection": "3e86b647-1f24-489d-989e-e1dc8c595c49",
+			"folder": null,
+			"order": [
+				"b4c0a4e1-59ff-4e10-9d25-d1f11299d82e",
+				"c11d733a-a58e-4a5c-b3da-d32466be59be",
+				"bc888c72-5186-42a1-9652-6b3ebad89f60",
+				"8bcdda0f-2544-44e0-9559-3eb9112fc832",
+				"0c543ba9-6bf4-42d6-b265-40ee91ec643f"
+			],
+			"folders_order": []
+		}
+	],
+	"requests": [
+		{
+			"id": "0c543ba9-6bf4-42d6-b265-40ee91ec643f",
+			"name": "Category",
+			"url": "http://localhost:8081/category/2",
+			"description": "",
+			"data": [],
+			"dataMode": "raw",
+			"headerData": [
+				{
+					"key": "Content-Type",
+					"name": "Content-Type",
+					"value": "application/json",
+					"description": "",
+					"type": "text"
+				}
+			],
+			"method": "PUT",
+			"pathVariableData": [],
+			"queryParams": [],
+			"auth": null,
+			"events": [],
+			"folder": "be58c173-2b74-4b27-855a-5d93bd608428",
+			"rawModeData": "{\n\t\"name\": \"sports\",\n\t\"status\": \"active\"\n}",
+			"headers": "Content-Type: application/json\n",
+			"pathVariables": {}
+		},
+		{
+			"id": "22d4472f-334b-4f78-ba7d-8a6ed5507037",
+			"name": "Article(single)",
+			"url": "http://localhost:8081/article/3",
+			"description": "",
+			"data": null,
+			"dataMode": "",
+			"headerData": [],
+			"method": "GET",
+			"pathVariableData": [],
+			"queryParams": [],
+			"auth": null,
+			"events": [],
+			"folder": "7a5d9f8e-da40-4328-976d-588eace9466e",
+			"headers": "",
+			"pathVariables": {}
+		},
+		{
+			"id": "23a0ddec-7898-4d56-bd34-1b86f02546b0",
+			"name": "Article",
+			"url": "http://localhost:8081/article/2",
+			"description": "",
+			"data": null,
+			"dataMode": "",
+			"headerData": [],
+			"method": "DELETE",
+			"pathVariableData": [],
+			"queryParams": [],
+			"auth": null,
+			"events": [],
+			"folder": "7a5d9f8e-da40-4328-976d-588eace9466e",
+			"headers": "",
+			"pathVariables": {}
+		},
+		{
+			"id": "8bcdda0f-2544-44e0-9559-3eb9112fc832",
+			"name": "Category",
+			"url": "http://localhost:8081/category/1",
+			"description": "",
+			"data": null,
+			"dataMode": "",
+			"headerData": [],
+			"method": "DELETE",
+			"pathVariableData": [],
+			"queryParams": [],
+			"auth": null,
+			"events": [],
+			"folder": "be58c173-2b74-4b27-855a-5d93bd608428",
+			"headers": "",
+			"pathVariables": {}
+		},
+		{
+			"id": "997f026f-cb76-4c09-8dcd-538171741501",
+			"name": "Article",
+			"url": "http://localhost:8081/article",
+			"description": "",
+			"data": [],
+			"dataMode": "raw",
+			"headerData": [
+				{
+					"key": "Content-Type",
+					"name": "Content-Type",
+					"value": "application/json",
+					"description": "",
+					"type": "text"
+				}
+			],
+			"method": "POST",
+			"pathVariableData": [],
+			"queryParams": [],
+			"auth": null,
+			"events": [],
+			"folder": "7a5d9f8e-da40-4328-976d-588eace9466e",
+			"rawModeData": "{\n\t\"title\": \"oke 1\",\n\t\"content\": \"sip\",\n\t\"CategoryID\": 1\n}",
+			"headers": "Content-Type: application/json\n",
+			"pathVariables": {}
+		},
+		{
+			"id": "a31b0451-2410-408a-878d-a54851c310b9",
+			"name": "Article",
+			"url": "http://localhost:8081/article/3",
+			"description": "",
+			"data": [],
+			"dataMode": "raw",
+			"headerData": [
+				{
+					"key": "Content-Type",
+					"name": "Content-Type",
+					"value": "application/json",
+					"description": "",
+					"type": "text"
+				}
+			],
+			"method": "PUT",
+			"pathVariableData": [],
+			"queryParams": [],
+			"auth": null,
+			"events": [],
+			"folder": "7a5d9f8e-da40-4328-976d-588eace9466e",
+			"rawModeData": "{\n\t\"title\": \"oke 1\",\n\t\"content\": \"sip\",\n\t\"CategoryID\": 2\n}",
+			"headers": "Content-Type: application/json\n",
+			"pathVariables": {}
+		},
+		{
+			"id": "a389ad72-d96f-4e3d-b77c-a2c28c0ec737",
+			"name": "Article",
+			"url": "http://localhost:8081/article",
+			"description": "",
+			"data": null,
+			"dataMode": "",
+			"headerData": [],
+			"method": "GET",
+			"pathVariableData": [],
+			"queryParams": [],
+			"auth": null,
+			"events": [],
+			"folder": "7a5d9f8e-da40-4328-976d-588eace9466e",
+			"headers": "",
+			"pathVariables": {}
+		},
+		{
+			"id": "b4c0a4e1-59ff-4e10-9d25-d1f11299d82e",
+			"name": "Category",
+			"url": "http://localhost:8081/category",
+			"description": "",
+			"data": null,
+			"dataMode": "",
+			"headerData": [],
+			"method": "GET",
+			"pathVariableData": [],
+			"queryParams": [],
+			"auth": null,
+			"events": [],
+			"folder": "be58c173-2b74-4b27-855a-5d93bd608428",
+			"headers": "",
+			"pathVariables": {}
+		},
+		{
+			"id": "bc888c72-5186-42a1-9652-6b3ebad89f60",
+			"name": "Category",
+			"url": "http://localhost:8081/category",
+			"description": "",
+			"data": [],
+			"dataMode": "raw",
+			"headerData": [
+				{
+					"key": "Content-Type",
+					"name": "Content-Type",
+					"value": "application/json",
+					"description": "",
+					"type": "text"
+				}
+			],
+			"method": "POST",
+			"pathVariableData": [],
+			"queryParams": [],
+			"auth": null,
+			"events": [],
+			"folder": "be58c173-2b74-4b27-855a-5d93bd608428",
+			"rawModeData": "{\n\t\"name\": \"news\",\n\t\"status\": \"active\"\n}",
+			"headers": "Content-Type: application/json\n",
+			"pathVariables": {}
+		},
+		{
+			"id": "c11d733a-a58e-4a5c-b3da-d32466be59be",
+			"name": "Category(single)",
+			"url": "http://localhost:8081/category/1",
+			"description": "",
+			"data": null,
+			"dataMode": "",
+			"headerData": [],
+			"method": "GET",
+			"pathVariableData": [],
+			"queryParams": [],
+			"auth": null,
+			"events": [],
+			"folder": "be58c173-2b74-4b27-855a-5d93bd608428",
+			"headers": "",
+			"pathVariables": {}
+		}
+	]
+}
