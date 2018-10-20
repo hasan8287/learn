@@ -13,6 +13,25 @@ type Article struct {
 	Content    string `db:"article_content"`
 }
 
+// ArticleUpdate update data Article
+func ArticleUpdate(data Article) error {
+	var err error
+
+	_, err = database.SQL.Exec(
+		"UPDATE article SET category_id=?, article_title=?, article_content=? WHERE article_id=? LIMIT 1",
+		data.CategoryID, data.Title, data.Content, data.ID)
+
+	return err
+}
+
+// ArticleDelete delete article by id
+func ArticleDelete(id int) error {
+	var err error
+	_, err = database.SQL.Exec("DELETE FROM article WHERE article_id = ?", id)
+
+	return err
+}
+
 // ArticleGetOne : select singe data
 func ArticleGetOne(id int) (Article, error) {
 	var err error

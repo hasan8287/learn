@@ -83,6 +83,14 @@ func routes() *httprouter.Router {
 		New().
 		ThenFunc(controller.ArticlePost)))
 
+	r.DELETE("/article/:id", hr.Handler(alice.
+		New().
+		ThenFunc(controller.ArticleDelete)))
+
+	r.PUT("/article/:id", hr.Handler(alice.
+		New().
+		ThenFunc(controller.ArticleUpdate)))
+
 	return r
 }
 

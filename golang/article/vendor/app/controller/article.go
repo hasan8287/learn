@@ -11,8 +11,54 @@ import (
 	respond "gopkg.in/matryer/respond.v1"
 )
 
-type error interface {
-	Error() string
+// ArticleUpdate edit data Article
+func ArticleUpdate(w http.ResponseWriter, r *http.Request) {
+
+	var params httprouter.Params
+	params = context.Get(r, "params").(httprouter.Params)
+	ID := params.ByName("id")
+	i, err := strconv.Atoi(ID)
+
+	ArticleID := int(i)
+
+	decoder := json.NewDecoder(r.Body)
+	var dataUpdate model.Article
+	err = decoder.Decode(&dataUpdate)
+
+	if err != nil {
+		respond.With(w, r, http.StatusBadRequest, err.Error())
+	} else {
+		dataUpdate.ID = ArticleID
+
+		err = model.ArticleUpdate(dataUpdate)
+
+		if err != nil {
+			respond.With(w, r, http.StatusBadRequest, err.Error())
+		} else {
+
+			respond.With(w, r, http.StatusOK, "SUCCES")
+		}
+	}
+
+}
+
+// ArticleDelete : delete article
+func ArticleDelete(w http.ResponseWriter, r *http.Request) {
+	var params httprouter.Params
+	params = context.Get(r, "params").(httprouter.Params)
+	i, err := strconv.Atoi(params.ByName("id"))
+	if err != nil {
+		respond.With(w, r, http.StatusBadRequest, "failed get id")
+	} else {
+		articleID := int(i)
+		err := model.ArticleDelete(articleID)
+
+		if err != nil {
+			respond.With(w, r, http.StatusBadRequest, err.Error())
+		} else {
+			respond.With(w, r, http.StatusOK, "SUCCES")
+		}
+	}
 }
 
 // ArticleGetOne : get singe data
@@ -23,9 +69,9 @@ func ArticleGetOne(w http.ResponseWriter, r *http.Request) {
 	if err != nil {
 		respond.With(w, r, http.StatusBadRequest, "failed get id")
 	} else {
-		categotyID := int(i)
+		articleID := int(i)
 
-		data, err := model.ArticleGetOne(categotyID)
+		data, err := model.ArticleGetOne(articleID)
 
 		if err != nil {
 			respond.With(w, r, http.StatusBadRequest, err.Error())
