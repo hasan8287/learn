@@ -24,6 +24,7 @@ func HandlerFunc(h http.HandlerFunc) httprouter.Handle {
 func Handler(h http.Handler) httprouter.Handle {
 	return func(w http.ResponseWriter, r *http.Request, p httprouter.Params) {
 		context.Set(r, "params", p)
+		w.Header().Set("Access-Control-Allow-Origin", "*")
 		h.ServeHTTP(w, r)
 	}
 }
