@@ -8,11 +8,12 @@ import (
 
 	"github.com/julienschmidt/httprouter"
 	"github.com/justinas/alice"
+	"github.com/rs/cors"
 )
 
 // Load returns the routes and middleware
 func Load() http.Handler {
-	return middleware(routes())
+	return middleware(cors.AllowAll().Handler(routes()))
 }
 
 // LoadHTTPS returns the HTTP routes and middleware
@@ -22,7 +23,7 @@ func LoadHTTPS() http.Handler {
 
 // LoadHTTP returns the HTTPS routes and middleware
 func LoadHTTP() http.Handler {
-	return middleware(routes())
+	return middleware(cors.AllowAll().Handler(routes()))
 
 	// Uncomment this and comment out the line above to always redirect to HTTPS
 	//return http.HandlerFunc(redirectToHTTPS)

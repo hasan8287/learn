@@ -2,15 +2,15 @@ package model
 
 import (
 	"app/shared/database"
-	"log"
 )
 
 // Article table
 type Article struct {
-	ID         int    `db:"article_id"`
-	CategoryID int    `db:"category_id"`
-	Title      string `db:"article_title"`
-	Content    string `db:"article_content"`
+	ID           int    `db:"article_id"`
+	CategoryID   int    `db:"category_id"`
+	CategoryName string `db:"category_name"`
+	Title        string `db:"article_title"`
+	Content      string `db:"article_content"`
 }
 
 // ArticleUpdate update data Article
@@ -39,7 +39,7 @@ func ArticleGetOne(id int) (Article, error) {
 	result := Article{}
 
 	err = database.SQL.Get(&result,
-		"SELECT article_id, article_title, article_content FROM article WHERE article_id=?", id)
+		"SELECT article.category_id, article_id, article_title, article_content, category.category_name FROM article LEFT JOIN category ON article.category_id=category.category_id WHERE article_id=?", id)
 
 	return result, err
 }
@@ -50,7 +50,8 @@ func ArticleGet(page int, limit int) ([]Article, error) {
 
 	var result []Article
 
-	err = database.SQL.Select(&result, "SELECT article_id, article_title, article_content FROM article")
+	err = database.SQL.Select(&result,
+		"SELECT article.category_id, article_id, article_title, article_content, category.category_name FROM article LEFT JOIN category ON article.category_id=category.category_id ")
 
 	return result, err
 }
@@ -58,8 +59,7 @@ func ArticleGet(page int, limit int) ([]Article, error) {
 // ArticleCreate : insert data article
 func ArticleCreate(data Article) (Article, error) {
 	var err error
-	log.Println("cat id")
-	log.Println(data.CategoryID)
+
 	res, err := database.SQL.Exec("INSERT INTO article (category_id, article_title, article_content) VALUES (?,?,?)",
 		data.CategoryID, data.Title, data.Content)
 
