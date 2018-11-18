@@ -17,7 +17,25 @@ export default {
         {
           name: 'List',
           url: '/category',
-          icon: 'icon-puzzle',
+        },
+        {
+          name: 'Add',
+          url: '/category/add',
+        },
+      ],
+    },
+    {
+      name: 'Article',
+      url: '/article',
+      icon: 'icon-puzzle',
+      children: [
+        {
+          name: 'List',
+          url: '/article',
+        },
+        {
+          name: 'Add',
+          url: '/article/add',
         },
       ],
     },

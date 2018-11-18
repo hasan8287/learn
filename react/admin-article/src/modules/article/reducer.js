@@ -1,10 +1,10 @@
 
 import {
-  DATA_CATEGORY,
-  DATA_CATEGORY_REQUEST,
-  DATA_CATEGORY_DETAIL,
-  DATA_CATEGORY_FAILED,
-  DATA_CATEGORY_SUCCESS,
+  DATA_ARTICLE,
+  DATA_ARTICLE_REQUEST,
+  DATA_ARTICLE_DETAIL,
+  DATA_ARTICLE_FAILED,
+  DATA_ARTICLE_SUCCESS,
 } from './action'
 
 const initialState = {
@@ -17,7 +17,7 @@ const initialState = {
 
 export default (state = initialState, action) => {
   switch (action.type) {
-    case DATA_CATEGORY_REQUEST:
+    case DATA_ARTICLE_REQUEST:
       return {
         ...state,
         isLoading: true,
@@ -25,28 +25,28 @@ export default (state = initialState, action) => {
         err: null,
       }
 
-    case DATA_CATEGORY:
+    case DATA_ARTICLE:
       return {
         ...state,
         isLoading: false,
         data: action.data
       }
 
-    case DATA_CATEGORY_SUCCESS:
+    case DATA_ARTICLE_SUCCESS:
       return {
         ...state,
         isLoading: false,
         succes: true,
       }
 
-    case DATA_CATEGORY_DETAIL:
+    case DATA_ARTICLE_DETAIL:
       return {
         ...state,
         isLoading: false,
         detail: action.detail
       }
 
-    case DATA_CATEGORY_FAILED:
+    case DATA_ARTICLE_FAILED:
       return {
         ...state,
         isLoading: false,

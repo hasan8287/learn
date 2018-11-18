@@ -3,14 +3,14 @@ import { push } from 'connected-react-router'
 import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
 
-import { getDataCategory, deleteDataCategory } from './action'
+import { getDataArticle, deleteDataArticle } from './action'
 
 import List from './container/list'
 
-class Category extends React.Component {
+class Article extends React.Component {
 
   componentWillMount() {
-    this.props.getDataCategory()
+    this.props.getDataArticle()
   }
 
   render() {
@@ -26,18 +26,18 @@ class Category extends React.Component {
   }
 }
 
-const mapStateToProps = ({ category }) => ({
-  ...category,
+const mapStateToProps = ({ article }) => ({
+  ...article,
 })
 
 const mapDispatchToProps = dispatch => bindActionCreators({
-  getDataCategory,
-  deleteDataCategory,
+  getDataArticle,
+  deleteDataArticle,
   changePage: () => push('/')
 }, dispatch)
 
 export default connect(
   mapStateToProps,
   mapDispatchToProps
-)(Category)
+)(Article)
 
